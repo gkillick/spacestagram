@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NasaPhoto} from "../../services/nasa-photos.service";
+import {DomSanitizer, SafeResourceUrl, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-photo-card',
@@ -9,10 +10,12 @@ import {NasaPhoto} from "../../services/nasa-photos.service";
 export class PhotoCardComponent implements OnInit {
 
   @Input() photo: NasaPhoto;
+  safeYoutubeURL: SafeResourceUrl;
 
-  constructor() { }
+  constructor(private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.safeYoutubeURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.photo.url);
   }
 
 }
