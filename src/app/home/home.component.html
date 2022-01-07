@@ -1,1 +1,3 @@
-<p>home works!</p>
+<div class="photo-grid" >
+  <app-photo-card *ngFor="let photo of nasaPhotos; index as i;" [photo]="photo" [style]="gridItemStyle(i)">i</app-photo-card>
+</div>
