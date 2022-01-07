@@ -1,6 +1,8 @@
-$headerHeight: 50px;
+$headerHeight: 60px;
 
 .app-header{
+  padding-left:20px;
+  padding-right: 20px;
   display: flex;
   position: fixed;
   height: $headerHeight;
@@ -9,7 +11,9 @@ $headerHeight: 50px;
   left: 0;
   z-index: 9;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  transition: background-color .2s ease-in-out;
+  background-color: var(--accent-background-color);
 
 }
 
@@ -21,9 +25,35 @@ $headerHeight: 50px;
 .logo{
   text-transform: uppercase;
   text-decoration: none;
-  color:black;
+  color:var(--primary-text-color);
   letter-spacing: 1.2px;
+  display: flex;
+  align-items: center;
+
+}
+.logo-icon{
+  margin-right: 2px;
+  margin-bottom: 3px;
 }
 .bolder-logo-text{
   font-weight: 500;
+}
+.dark-mode-toggle{
+}
+.header-text{
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+}
+.header-right-content{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex:1;
+}
+.accent-header-text{
+  color:var(--accent-text-color);
+}
+.header-left-content{
+  flex:1;
 }

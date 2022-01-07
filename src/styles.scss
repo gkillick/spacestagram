@@ -52,8 +52,29 @@ table {
 //global styles
 
 body{
+  transition: background-color .2s ease-in-out;
   background-color: var(--main-background-color);
   -webkit-font-smoothing: antialiased; /* Chrome, Safari */
   -moz-osx-font-smoothing: grayscale;
-  font-family: Roboto, "Helvetica Neue", sans-serif!important;
+  color: var(--primary-text-color);
+}
+
+//margins
+.ml-10{
+  margin-left:10px;
+}
+.mr-10{
+  margin-right:10px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//material overrides
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color:var(--accent-color);
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color:var(--accent-color);
 }
