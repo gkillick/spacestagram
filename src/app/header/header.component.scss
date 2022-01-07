@@ -1,0 +1,29 @@
+$headerHeight: 50px;
+
+.app-header{
+  display: flex;
+  position: fixed;
+  height: $headerHeight;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+  align-items: center;
+  justify-content: center;
+
+}
+
+//so app content does not start under header;
+.header-spacer{
+  height:$headerHeight;
+}
+
+.logo{
+  text-transform: uppercase;
+  text-decoration: none;
+  color:black;
+  letter-spacing: 1.2px;
+}
+.bolder-logo-text{
+  font-weight: 500;
+}
