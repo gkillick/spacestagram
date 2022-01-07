@@ -67,6 +67,15 @@ body{
   margin-right:10px;
 }
 
+//buttons
+
+.no-btn-style{
+  border:none;
+  background: none;
+  cursor: pointer;
+  color: currentColor;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -77,4 +86,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
   background-color:var(--accent-color);
+}
+.mat-menu-panel {
+  background: var(--main-background-color);
+}
+.mat-menu-item{
+  color: var(--primary-text-color);
+}
+.mat-menu-item .mat-icon-no-color, .mat-menu-submenu-icon{
+  color: inherit;
 }

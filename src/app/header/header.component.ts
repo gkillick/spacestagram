@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LayoutService} from "../services/layout.service";
 
 @Component({
   selector: 'app-header',
@@ -8,33 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   darkMode = false;
+  gridLayout:boolean;
 
-  constructor() { }
+  constructor(private layoutService: LayoutService) { }
 
   ngOnInit(): void {
-    this.getStoredDarkMode()
-  }
-
-  getStoredDarkMode(){
-    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-    if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
-      if (currentTheme === 'dark') {
-        this.darkMode = true;
-      }
-    }
-
+    this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
+    this.layoutService.sharedDarkModeState.subscribe((state)=> this.darkMode = state)
   }
 
   toggleDarkMode() {
-    this.darkMode = !this.darkMode
-    if(this.darkMode){
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    }
-    else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light'); //ad
-    }
+    this.layoutService.setDarkModeState(!this.darkMode);
+  }
+
+  displayGridView() {
+    this.layoutService.setGridViewState(true);
+  }
+  displayListView() {
+    this.layoutService.setGridViewState(false);
   }
 }

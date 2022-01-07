@@ -1,11 +1,38 @@
 <div class="header-spacer"></div>
 <header class="app-header">
-  <div class="header-left-content"></div>
+  <div class="header-left-content">
+    <button class="no-btn-style" (click)="displayGridView()" [class.accent-header-text]="!gridLayout">
+      <mat-icon>apps</mat-icon>
+    </button>
+    <button class="no-btn-style" (click)="displayListView()" [class.accent-header-text]="gridLayout">
+      <mat-icon>format_list_bulleted</mat-icon>
+    </button>
+  </div>
   <nav><a href="/" class="logo"><mat-icon class="logo-icon">rocket_launch</mat-icon><span class="bolder-logo-text">Space</span>stagram</a></nav>
   <div class="header-right-content">
     <span class="header-text mr-10" [class.accent-header-text]="darkMode">Light</span>
   <mat-slide-toggle [checked]="darkMode" (toggleChange)="toggleDarkMode()" class="dark-mode-toggle" aria-label="toggle dark mode ">
   </mat-slide-toggle>
     <span class="header-text ml-10" [class.accent-header-text]="!darkMode">Space</span>
+  </div>
+
+  <div class="header-right-content-mobile">
+    <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+    <mat-menu #menu="matMenu" class="mobile-menu">
+      <button class="header-text" mat-menu-item (click)="displayGridView()" [class.accent-header-text]="!gridLayout">
+        <mat-icon>apps</mat-icon>
+        grid view
+      </button>
+      <button class="header-text" mat-menu-item (click)="displayListView()" [class.accent-header-text]="gridLayout">
+        <mat-icon>format_list_bulleted</mat-icon>
+        list view
+      </button>
+      <button mat-menu-item (click)="toggle.toggle(); toggleDarkMode()">
+        <span class="header-text mr-10" [class.accent-header-text]="darkMode">Light</span>
+        <mat-slide-toggle #toggle [checked]="darkMode" (click)="$event.preventDefault()" class="dark-mode-toggle" aria-label="toggle dark mode ">
+        </mat-slide-toggle>
+        <span class="header-text ml-10" [class.accent-header-text]="!darkMode">Space</span>
+      </button>
+    </mat-menu>
   </div>
 </header>

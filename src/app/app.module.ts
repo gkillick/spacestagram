@@ -9,22 +9,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import { PhotoCardComponent } from './home/photo-card/photo-card.component';
+import { StyleGridItemDirective } from './directives/style-grid-item.directive';
+import {MatButtonModule} from "@angular/material/button";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    PhotoCardComponent
+    PhotoCardComponent,
+    StyleGridItemDirective,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatSlideToggleModule,
-        MatIconModule,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatMenuModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

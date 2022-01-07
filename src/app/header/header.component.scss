@@ -51,9 +51,27 @@ $headerHeight: 60px;
   justify-content: flex-end;
   flex:1;
 }
+.header-right-content-mobile{
+  display: none;
+}
 .accent-header-text{
   color:var(--accent-text-color);
 }
 .header-left-content{
   flex:1;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-left-content * {
+    display: none;
+  }
+  .header-right-content{
+    display: none;
+  }
+  .header-right-content-mobile{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex:1;
+  }
 }
