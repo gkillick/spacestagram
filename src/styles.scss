@@ -67,6 +67,25 @@ body{
   margin-right:10px;
 }
 
+//typography
+
+h1{
+  font-size: 2em;
+  margin-bottom: .5em;
+  font-weight: 500;
+}
+h2{
+  font-size: 1.5em;
+  margin-bottom: .7em;
+}
+h3{
+  font-size:1em;
+}
+h4{
+  font-size: .8em;
+  font-weight: 500;
+}
+
 //buttons
 
 .no-btn-style{
@@ -95,4 +114,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .mat-menu-item .mat-icon-no-color, .mat-menu-submenu-icon{
   color: inherit;
+}
+.full-screen-modal{
+  max-width: 100%!important;;
+  max-height: 100%!important;;
+  width: 100%!important;;
+  height: 100%!important;;
+}
+.full-screen-modal .mat-dialog-container{
+  border-radius: 0;
+  background: var(--main-background-color);
 }

@@ -19,6 +19,7 @@ export class NasaPhotosService {
 }
 
 export interface NasaPhoto {
+  copyright: string;
   date: string;
   explanation: string;
   hdurl: string;

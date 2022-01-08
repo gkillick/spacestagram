@@ -4,7 +4,7 @@
   object-fit: cover;
 }
 
-
+//sizing
 ::ng-deep .photo-grid .photo,::ng-deep .photo-grid article {
   width: 100%;
   height: 100%;
@@ -15,11 +15,11 @@
   object-fit: cover;
   display: block;
 }
-
-
 .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
 .video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
+
+//formatting
 section{
   padding: 20px;
   background: var(--dark-accent-background-color);
@@ -30,18 +30,20 @@ section{
   flex:1;
   justify-content: flex-end;
 }
-.left-text h1{
+.photo-title{
   margin-bottom: 8px;
 }
-.left-text h2{
+.photo-date{
   color: var(--accent-text-color);
+  margin-bottom: 0;
 }
 ::ng-deep .right-description-text .mat-ripple-element {
   background-color: rgba(255, 0, 55, 0.4);
 }
+
+//like button
 .like{
   font-size: 30px;
-
 }
 .liked{
   animation:likePulse .3s ;

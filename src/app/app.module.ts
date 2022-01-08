@@ -12,6 +12,8 @@ import { PhotoCardComponent } from './home/photo-card/photo-card.component';
 import { StyleGridItemDirective } from './directives/style-grid-item.directive';
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
+import { PhotoDetailComponent } from './home/photo-card/photo-detail/photo-detail.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import {MatMenuModule} from "@angular/material/menu";
     HeaderComponent,
     PhotoCardComponent,
     StyleGridItemDirective,
+    PhotoDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import {MatMenuModule} from "@angular/material/menu";
     HttpClientModule,
     MatButtonModule,
     MatMenuModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

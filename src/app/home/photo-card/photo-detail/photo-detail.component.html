@@ -1,0 +1,17 @@
+<div class="mobile-close"><button ng-show="false" class="close-photo-detail-mobile" (click)="this.dialogRef.close()" mat-icon-button><mat-icon>close</mat-icon></button></div>
+<div class="mobile-close-spacer"></div>
+<button ng-show="false" class="close-photo-detail" (click)="this.dialogRef.close()" mat-icon-button><mat-icon>close</mat-icon></button>
+<article class="photo-detail-grid">
+  <div class="photo-detail-container">
+  <img [src]="photo.url" [alt]="photo.title">
+  </div>
+  <section class="photo-description">
+    <div>
+    <h1>{{photo.title}}</h1>
+    <h2>{{photo.date}}</h2>
+      <h4><mat-icon *ngIf="photo.copyright.length > 0">copyright</mat-icon>{{photo.copyright}}</h4>
+    <p>{{photo.explanation}}</p>
+    </div>
+  </section>
+
+</article>
