@@ -1,17 +1,27 @@
-<div class="mobile-close"><button ng-show="false" class="close-photo-detail-mobile" (click)="this.dialogRef.close()" mat-icon-button><mat-icon>close</mat-icon></button></div>
+<div class="mobile-close">
+  <div class="photo-buttons-mobile">
+    <button mat-icon-button *ngIf="photo.media_type=='image'" (click)="downloadPhoto()"><mat-icon>download</mat-icon></button>
+    <app-like-button [photo]="photo"></app-like-button>
+  </div>
+
+  <button ng-show="false" class="close-photo-detail-mobile" (click)="this.dialogRef.close()" mat-icon-button><mat-icon>close</mat-icon></button>
+</div>
 <div class="mobile-close-spacer"></div>
 <button ng-show="false" class="close-photo-detail" (click)="this.dialogRef.close()" mat-icon-button><mat-icon>close</mat-icon></button>
 <article class="photo-detail-grid">
+  <div class="photo-description">
+    <section>
+      <h1>{{photo.title}}</h1>
+      <h2>{{photo.date}}</h2>
+      <h4><mat-icon *ngIf="photo.copyright?.length">copyright</mat-icon>{{photo.copyright}}</h4>
+      <p>{{photo.explanation}}</p>
+    </section>
+    <div class="photo-buttons">
+      <button mat-button *ngIf="photo.media_type=='image'" (click)="downloadPhoto()"><mat-icon>download</mat-icon> download</button>
+      <app-like-button [photo]="photo"></app-like-button>
+    </div>
+  </div>
   <div class="photo-detail-container">
   <img [src]="photo.url" [alt]="photo.title">
   </div>
-  <section class="photo-description">
-    <div>
-    <h1>{{photo.title}}</h1>
-    <h2>{{photo.date}}</h2>
-      <h4><mat-icon *ngIf="photo.copyright.length > 0">copyright</mat-icon>{{photo.copyright}}</h4>
-    <p>{{photo.explanation}}</p>
-    </div>
-  </section>
-
 </article>

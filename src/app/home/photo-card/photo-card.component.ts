@@ -15,28 +15,24 @@ export class PhotoCardComponent implements OnInit {
   @Input() photo: NasaPhoto;
   safeYoutubeURL: SafeResourceUrl;
   gridLayout: boolean;
-  liked = false
 
-  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer, private layoutService: LayoutService,private ref: ChangeDetectorRef) { }
+  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer, private layoutService: LayoutService) { }
 
   ngOnInit(): void {
     this.safeYoutubeURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.photo.url.replace("watch?v=", "v/"));
     this.layoutService.sharedGridViewState.subscribe((state) => this.gridLayout = state);
   }
 
-  likePhotoClick() {
-    this.liked = !this.liked
-    this.ref.detectChanges()
-  }
-
-  openPhotoDetail() {
-    this.dialog.open(PhotoDetailComponent, {
-      panelClass: 'full-screen-modal',
-
-      autoFocus: false,
-      data: {
-        photo: this.photo,
-      }
-     })
+  openPhotoDetail(event: MouseEvent) {
+    //make sure like button not clicked
+    if(!((event.target as HTMLElement).classList.contains('mat-icon'))) {
+      this.dialog.open(PhotoDetailComponent, {
+        panelClass: 'full-screen-modal',
+        autoFocus: false,
+        data: {
+          photo: this.photo,
+        }
+      })
+    }
   }
 }

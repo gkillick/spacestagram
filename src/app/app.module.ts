@@ -14,6 +14,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
 import { PhotoDetailComponent } from './home/photo-card/photo-detail/photo-detail.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { LikeButtonComponent } from './home/photo-card/like-button/like-button.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     PhotoCardComponent,
     StyleGridItemDirective,
     PhotoDetailComponent,
+    LikeButtonComponent,
   ],
   imports: [
     BrowserModule,

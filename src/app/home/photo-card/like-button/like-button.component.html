@@ -1,0 +1,3 @@
+<button mat-icon-button (click)="likePhoto()">
+    <mat-icon class="like" [class.liked]="liked">{{liked ? "favorite" : "favorite_border"}}</mat-icon>
+</button>

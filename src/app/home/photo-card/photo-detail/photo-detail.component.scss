@@ -1,3 +1,5 @@
+$margin: 18px;
+
 .close-photo-detail{
   position: fixed;
   top:1.5rem;
@@ -25,6 +27,72 @@
   padding:50px;
   box-sizing: border-box;
 }
+
+.photo-description{
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-text-color);
+  justify-content: center;
+}
+
+.photo-detail-container{
+
+  display: flex;
+  align-items: center;
+}
+.photo-buttons{
+  margin-top:$margin;
+  display: flex;
+}
+.photo-buttons button {
+  background: var(--primary-color);
+  color: #F3F3F4;
+}
+.photo-buttons-mobile{
+  display: none;
+  padding-left:24px;
+}
+.photo-buttons-mobile button {
+  background: var(--accent-color);
+  color: #F3F3F4;
+}
+.photo-detail-container img{
+  width: 100%;
+  height:100%;
+  object-fit: contain;
+}
+
+app-like-button{
+  margin-left:10px;
+}
+
+
+//typography
+h1{
+  margin-bottom: $margin;
+}
+h2{
+  color:var(--accent-text-color);
+  margin-bottom: $margin;
+}
+h4{
+  color:var(--primary-text-color);
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  margin-bottom: $margin;
+
+}
+h4 mat-icon{
+  margin-bottom: 2px;
+  margin-right: 4px;
+  font-size: 15px;
+  height: 15px;
+  width:15px;
+}
+
+//mobile
+
 @media only screen and (max-width: 768px) {
   .close-photo-detail{
     display: none;
@@ -40,7 +108,7 @@
     background: var(--accent-background-color);
     height: 60px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: fixed;
     padding-right: 9px;
     align-items: center;
@@ -48,51 +116,18 @@
 
   .photo-detail-grid{
     display: flex;
+    grid-gap:1.5rem;
     padding: 0px;
     flex-direction: column;
   }
   .photo-detail-container{
     padding-bottom: 20px;
   }
-}
-.photo-description{
-  order:1;
-  display: flex;
-  align-items: center;
-  color: var(--primary-text-color)
-}
-
-.photo-detail-container{
-  order:2;
-  display: flex;
-  align-items: center;
-}
-.photo-detail-container img{
-  width: 100%;
-  height:100%;
-  object-fit: contain;
-}
-
-$margin-bottom-text: 18px;
-h1{
-  margin-bottom: $margin-bottom-text;
-}
-h2{
-  color:var(--accent-text-color);
-  margin-bottom: $margin-bottom-text;
-}
-h4{
-  color:var(--primary-text-color);
-  display: flex;
-  align-items: center;
-  margin-bottom: 1em;
-  margin-bottom: $margin-bottom-text;
-
-}
-h4 mat-icon{
-  margin-bottom: 2px;
-  margin-right: 4px;
-  font-size: 15px;
-  height: 15px;
-  width:15px;
+  .photo-buttons-mobile{
+    display: flex;
+    padding-left:24px;
+  }
+  .photo-buttons{
+    display: none;
+  }
 }

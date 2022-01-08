@@ -18,4 +18,14 @@ export class PhotoDetailComponent implements OnInit {
     this.photo = this.data.photo;
   }
 
+  downloadPhoto(){
+    const link = document.createElement('a');
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', this.photo.hdurl);
+    link.setAttribute('download', `products.csv`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
 }
