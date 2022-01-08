@@ -15,6 +15,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import { PhotoDetailComponent } from './home/photo-card/photo-detail/photo-detail.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { LikeButtonComponent } from './home/photo-card/like-button/like-button.component';
+import { HoverClassDirective } from './directives/hover-class.directive';
+import { RocketLoaderComponent } from './home/rocket-loader/rocket-loader.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { LikeButtonComponent } from './home/photo-card/like-button/like-button.c
     StyleGridItemDirective,
     PhotoDetailComponent,
     LikeButtonComponent,
+    HoverClassDirective,
+    RocketLoaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,11 +16,20 @@ export class PhotoCardComponent implements OnInit {
   safeYoutubeURL: SafeResourceUrl;
   gridLayout: boolean;
 
-  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer, private layoutService: LayoutService) { }
+  constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer, private layoutService: LayoutService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.safeYoutubeURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.photo.url.replace("watch?v=", "v/"));
-    this.layoutService.sharedGridViewState.subscribe((state) => this.gridLayout = state);
+    this.layoutService.sharedGridViewState.subscribe((state) => {
+      this.gridLayout = state;
+      this.ref.detectChanges();
+    });
+    this.ref.detectChanges();
+  }
+
+
+  ngOnChanges(): void{
+    this.ref.detectChanges()
   }
 
   openPhotoDetail(event: MouseEvent) {

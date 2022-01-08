@@ -1,7 +1,20 @@
-<article (click)="openPhotoDetail($event)">
-  <img *ngIf="photo.media_type == 'image'" class="photo" [alt]="photo.title" [src]="photo.url" >
-  <div class="video-container" *ngIf="photo.media_type == 'video'">
+<article (click)="openPhotoDetail($event)" hover-class="show-description">
+  <section #mobileDescription *ngIf="gridLayout" class="mobile-photo-section" >
+    <div class="left-text-mobile">
+      <h3 class="photo-title">{{this.photo.title}}</h3>
+      <h3 class="photo-date">{{this.photo.date}}</h3>
+    </div>
+    <div class="right-description-text">
+      <app-like-button [photo]="photo"></app-like-button>
+    </div>
+  </section>
+  <div class="photo-container"  *ngIf="photo.media_type == 'image'">
+  <img class="photo" [alt]="photo.title" [src]="photo.url" >
+  </div>
+  <div *ngIf="photo.media_type == 'video'" class="video-outer-container">
+  <div class="video-container" >
   <iframe  [src]="safeYoutubeURL" allowfullscreen="true" width="100%" height="100%"></iframe>
+  </div>
   </div>
   <section *ngIf="!gridLayout">
     <div class="left-text">

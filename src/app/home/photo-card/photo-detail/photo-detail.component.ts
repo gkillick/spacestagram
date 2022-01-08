@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, Input, OnInit} from '@angular/core';
 import {NasaPhoto} from "../../../services/nasa-photos.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 

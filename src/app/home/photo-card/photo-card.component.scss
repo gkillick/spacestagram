@@ -1,12 +1,29 @@
 :host{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   cursor: pointer;
+  display: flex;
 }
 
 //sizing
-::ng-deep .photo-grid .photo,::ng-deep .photo-grid article {
+article{
+  flex:1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+section.mobile-photo-section{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  opacity:0;
+  transition: opacity .3s ease-in-out;
+  z-index: 9;
+}
+.show-description .mobile-photo-section{
+  opacity:0.9;
+}
+::ng-deep .photo-grid .photo,::ng-deep .photo-grid {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -19,6 +36,14 @@
 .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
 .video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
+.photo-container{
+  flex:1;
+  overflow: hidden;
+}
+.video-outer-container{
+  flex:1;
+  overflow: hidden;
+}
 
 //formatting
 section{
@@ -43,3 +68,11 @@ section{
 }
 
 
+//mobile
+
+@media only screen and (max-width: 768px) {
+  .mobile-photo-section{
+    display: none;
+  }
+
+}

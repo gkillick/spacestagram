@@ -13,7 +13,7 @@ export class NasaPhotosService {
   constructor(private http: HttpClient) { }
 
   getPhotoByDate(): Observable<NasaPhoto[]>{
-    const url = 'https://api.nasa.gov/planetary/apod?api_key=' + this.nasaAPIKey + '&count=' + 30;
+    const url = 'https://api.nasa.gov/planetary/apod?api_key=' + this.nasaAPIKey + '&count=' + 12;
     return this.http.get<NasaPhoto[]>(url)
   };
 }

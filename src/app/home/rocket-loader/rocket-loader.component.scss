@@ -1,0 +1,75 @@
+.rocket-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+$rocket-size: 70px;
+.rocket-container mat-icon{
+  font-size: $rocket-size;
+  height: $rocket-size ;
+  width: $rocket-size;
+}
+.rocket-flame{
+  margin-top: -9px;
+  display: flex;
+  width:30%;
+  align-items: center;
+  position: relative;
+  align-items: flex-start;
+}
+.flame-container{
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+
+}
+.rocket-flame img{
+  object-fit: contain;
+  animation-iteration-count: infinite;
+  transform-origin: top;
+}
+.rocket-flame-red{
+  animation:rocketPulse .8s ;
+
+}
+.rocket-flame-orange{
+  animation:rocketPulse2 .8s ;
+}
+.rocket-flame-yellow{
+  animation:rocketPulse3 .8s ;
+}
+
+//rocket animation
+
+@keyframes rocketPulse  {
+  0%, 100% {
+    transform: scale(.9, 1.4);
+  }
+
+  50% {
+    transform: scale(1.0, 1.5);
+  }
+
+}
+@keyframes rocketPulse2  {
+  0%, 100% {
+    transform: scale(.9, 1.4);
+  }
+
+  60% {
+    transform: scale(1.0, 1.5);
+  }
+
+}
+@keyframes rocketPulse3  {
+  0%, 100% {
+    transform: scale(1.3, 2);
+  }
+
+  70% {
+    transform: scale(1.6, 2.1);
+  }
+
+}

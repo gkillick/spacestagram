@@ -11,12 +11,18 @@ export class HomeComponent implements OnInit {
 
   public nasaPhotos: NasaPhoto[];
   gridLayout:boolean;
+  requestLoaded=false;
 
   constructor(private nasaPhotosService: NasaPhotosService, private layoutService: LayoutService) { }
 
   ngOnInit(): void {
-    this.nasaPhotosService.getPhotoByDate().subscribe((photos)=> this.nasaPhotos = photos)
     this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
+  }
+  ngAfterViewInit():void {
+    this.nasaPhotosService.getPhotoByDate().subscribe((photos)=> {
+      this.nasaPhotos = photos
+      this.requestLoaded = true;
+    });
   }
 
 }

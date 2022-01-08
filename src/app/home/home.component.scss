@@ -19,3 +19,16 @@
 .photo-list-item{
   margin-bottom: 1.5rem;
 }
+
+
+
+//rocket loading container
+.rocket-loading-container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
