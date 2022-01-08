@@ -3,6 +3,7 @@
 :root {
   --main-background-color: #FAFAFE;
   --accent-background-color:white;
+  --dark-accent-background-color: #efefef;
   --main-border-color: #dbdbdb;
   --primary-color: #2f41f1;
   --accent-color: #7480ff;
@@ -12,6 +13,7 @@
 [data-theme="dark"] {
   --main-background-color: #1B1F20;
 --accent-background-color:#191D1E;
+  --dark-accent-background-color: #15191a;
   --main-border-color: #48516a;
   --primary-text-color: #F3F3F4;
   --primary-color: #2f41f1;

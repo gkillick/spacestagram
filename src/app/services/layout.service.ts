@@ -14,7 +14,7 @@ export class LayoutService {
   sharedDarkModeState = this.darkMode.asObservable();
 
   constructor() {
-    this.getStoredDarkMode();
+    this.getStoredLayoutInfo();
   }
 
   ngOnInit(): void{
@@ -23,6 +23,11 @@ export class LayoutService {
 
   setGridViewState(state: boolean){
     this.gridView.next(state)
+    if(state){
+      localStorage.setItem('layoutMode', 'grid');
+    }else{
+      localStorage.setItem('layoutMode', 'list');
+    }
   }
 
   setDarkModeState(state: boolean){
@@ -36,9 +41,10 @@ export class LayoutService {
     }
   }
 
-  private getStoredDarkMode(){
-    console.log("getting state")
+  private getStoredLayoutInfo(){
     const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+    const currentLayoutMode = localStorage.getItem('layoutMode') ? localStorage.getItem('layoutMode') : null;
+    //get dark mode
     if (currentTheme) {
       document.documentElement.setAttribute('data-theme', currentTheme);
       if (currentTheme === 'dark') {
@@ -47,7 +53,14 @@ export class LayoutService {
         this.darkMode.next(false)
       }
     }
-
+    //get layout mode
+    if (currentLayoutMode) {
+      if (currentLayoutMode === 'grid') {
+        this.gridView.next(true)
+      }else{
+        this.gridView.next(false)
+      }
+    }
   }
 
 

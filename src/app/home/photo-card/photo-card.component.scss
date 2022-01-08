@@ -3,8 +3,58 @@
   height: 100%;
   object-fit: cover;
 }
-.photo, article {
+
+
+::ng-deep .photo-grid .photo,::ng-deep .photo-grid article {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+::ng-deep .photo-list .photo {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+.video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+section{
+  padding: 20px;
+  background: var(--dark-accent-background-color);
+  display: flex;
+}
+.right-description-text{
+  display: flex;
+  flex:1;
+  justify-content: flex-end;
+}
+.left-text h1{
+  margin-bottom: 8px;
+}
+.left-text h2{
+  color: var(--accent-text-color);
+}
+::ng-deep .right-description-text .mat-ripple-element {
+  background-color: rgba(255, 0, 55, 0.4);
+}
+.like{
+  font-size: 30px;
+
+}
+.liked{
+  animation:likePulse .3s ;
+  animation-iteration-count: 1;
+}
+
+@keyframes likePulse  {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.3, 1.3);
+  }
+
 }

@@ -1,7 +1,17 @@
 <article>
   <img *ngIf="photo.media_type == 'image'" class="photo" [alt]="photo.title" [src]="photo.url">
-  <iframe *ngIf="photo.media_type == 'video'" [src]="safeYoutubeURL" allowfullscreen="true" width="100%" height="100%"></iframe>
+  <div class="video-container" *ngIf="photo.media_type == 'video'">
+  <iframe  [src]="safeYoutubeURL" allowfullscreen="true" width="100%" height="100%"></iframe>
+  </div>
   <section *ngIf="!gridLayout">
-    {{this.photo.title}}
+    <div class="left-text">
+    <h1>{{this.photo.title}}</h1>
+    <h2>{{this.photo.date}}</h2>
+    </div>
+    <div class="right-description-text">
+      <button mat-icon-button (click)="likePhotoClick()">
+        <mat-icon class="like" [class.liked]="liked" #heart [style.color]="liked ? '#dc2f46' : 'FFFFFF'">{{liked ? "favorite" : "favorite_border"}}</mat-icon>
+      </button>
+    </div>
   </section>
 </article>
