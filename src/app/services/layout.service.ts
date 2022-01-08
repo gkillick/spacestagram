@@ -10,7 +10,7 @@ export class LayoutService {
   sharedGridViewState = this.gridView.asObservable();
 
   //default dark mode to false
-  private darkMode = new BehaviorSubject(true);
+  private darkMode = new BehaviorSubject(false);
   sharedDarkModeState = this.darkMode.asObservable();
 
   constructor() {
