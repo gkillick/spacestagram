@@ -14,6 +14,10 @@ export class LikeButtonComponent implements OnInit {
   liked = false;
 
   constructor(private likeService: LikeService, private ref: ChangeDetectorRef) {
+    likeService.likedPhotos.subscribe((value)=>{
+      this.liked = this.likeService.isLiked(this.photo);
+      this.ref.detectChanges()
+    })
   }
 
   ngOnInit(): void {
