@@ -20,6 +20,7 @@ import { RocketLoaderComponent } from './home/rocket-loader/rocket-loader.compon
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatInputModule} from "@angular/material/input";
+import { LikedPhotosComponent } from './liked-photos/liked-photos.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {MatInputModule} from "@angular/material/input";
     LikeButtonComponent,
     HoverClassDirective,
     RocketLoaderComponent,
+    LikedPhotosComponent,
   ],
   imports: [
     BrowserModule,

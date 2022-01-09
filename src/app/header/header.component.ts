@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LayoutService} from "../services/layout.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   gridLayout:boolean;
   today = new Date();
 
-  constructor(private layoutService: LayoutService) { }
+  constructor(private layoutService: LayoutService, public router: Router) { }
 
   ngOnInit(): void {
     this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
@@ -28,5 +29,14 @@ export class HeaderComponent implements OnInit {
   }
   displayListView() {
     this.layoutService.setGridViewState(false);
+  }
+
+
+  checkClick($event: MouseEvent) {
+    if(this.router.url == '/home'){
+      $event.stopPropagation();
+      $event.preventDefault();
+    }
+
   }
 }

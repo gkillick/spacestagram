@@ -1,14 +1,13 @@
 <div class="header-spacer"></div>
 <header class="app-header">
   <div class="header-left-content">
-
+    <button mat-icon-button class="header-text" (click)="displayGridView()" [class.accent-header-text]="!gridLayout">
+      <mat-icon>apps</mat-icon>
+    </button>
     <button mat-icon-button class="header-text" (click)="displayListView()" [class.accent-header-text]="gridLayout">
-      <mat-icon>favorite</mat-icon>
+      <mat-icon>format_list_bulleted</mat-icon>
     </button>
 
-    <input matInput class="cdk-visually-hidden" [max]="today" [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker ></mat-datepicker>
   </div>
   <nav><a href="/" class="logo"><mat-icon class="logo-icon">rocket_launch</mat-icon><span class="bolder-logo-text">Space</span>stagram</a></nav>
 
@@ -18,13 +17,6 @@
   <mat-slide-toggle [checked]="darkMode" (toggleChange)="toggleDarkMode()" class="dark-mode-toggle" aria-label="toggle dark mode ">
   </mat-slide-toggle>
     <span class="header-text ml-10" [class.accent-header-text]="!darkMode">Space</span>
-
-    <button mat-icon-button class="header-text" (click)="displayGridView()" [class.accent-header-text]="!gridLayout">
-      <mat-icon>apps</mat-icon>
-    </button>
-    <button mat-icon-button class="header-text" (click)="displayListView()" [class.accent-header-text]="gridLayout">
-      <mat-icon>format_list_bulleted</mat-icon>
-    </button>
   </div>
 
   <div class="header-right-content-mobile">
@@ -47,3 +39,19 @@
     </mat-menu>
   </div>
 </header>
+
+<div class="view-options">
+  <a mat-button class="view-button" routerLink="home" [routerLinkActive]="['is-active']">
+    <mat-icon>shuffle</mat-icon> Random
+  </a>
+  <a mat-button class="view-button date-button ml-10" [routerLinkActive]="['is-active']">
+    Date <mat-datepicker-toggle [disabled]="router.url != '/home'" (click)="checkClick($event)"matSuffix [for]="picker2"></mat-datepicker-toggle>
+  </a>
+
+  <input matInput class="cdk-visually-hidden" [max]="today" [matDatepicker]="picker2">
+  <mat-datepicker #picker2 ></mat-datepicker>
+
+  <a mat-button class="view-button" routerLink="liked" [routerLinkActive]="['is-active']">
+    <mat-icon>{{router.url == '/liked' ? 'favorite' : 'favorite_border'}}</mat-icon> Liked
+  </a>
+</div>

@@ -1,0 +1,38 @@
+:host{
+  display: flex;
+  justify-content: center;
+}
+.photo-grid{
+  max-width: 1000px;
+  margin:1.5rem;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 1.5rem;
+}
+.photo-list{
+  margin:1.5rem;
+  display:flex;
+  flex-direction: column;
+  max-width: 700px;
+}
+.photo-list-item{
+  margin-bottom: 1.5rem;
+}
+
+.hide-loading{
+  visibility: hidden;
+}
+
+
+
+//rocket loading container
+.rocket-loading-container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}

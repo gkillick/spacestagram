@@ -21,7 +21,8 @@ $headerHeight: 60px;
   letter-spacing: .5px;
   font-size:13px;
 }
-::ng-deep .header-left-content .mat-icon-button{
+
+::ng-deep .header-left-content .is-active {
   color: var(--primary-text-color);
 }
 
@@ -83,5 +84,40 @@ $headerHeight: 60px;
     align-items: center;
     justify-content: flex-end;
     flex:1;
+  }
+}
+.view-options{
+  display: flex;
+  padding:20px;
+  padding-bottom: 0px;
+  justify-content: center;
+  grid-gap: 2.5px;
+
+
+  @media only screen and (min-width: 768px) {
+    .date-button{
+      padding-right: 0px;
+    }
+  }
+
+  .view-button{
+    color: var(--accent-text-color);
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+  .view-button.is-active{
+    background-color: var(--primary-color);
+    color: #F3F3F4;
+  }
+  mat-datepicker-toggle {
+    color:var(--accent-text-color)
+  }
+  .is-active mat-datepicker-toggle{
+    color: #F3F3F4;
+  }
+  ::ng-deep .mat-button-disabled{
+    opacity: 0;
   }
 }
