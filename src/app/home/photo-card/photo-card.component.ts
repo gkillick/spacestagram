@@ -33,9 +33,6 @@ export class PhotoCardComponent implements OnInit {
     this.ref.detectChanges()
   }
 
-  sanitizeUrl(url: string){
-    return  this._sanitizer.bypassSecurityTrustResourceUrl(url.replace("watch?v=", "v/"));
-  }
 
   openPhotoDetail(event: MouseEvent) {
     //make sure like button not clicked

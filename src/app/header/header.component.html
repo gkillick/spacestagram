@@ -44,11 +44,11 @@
   <a mat-button class="view-button" routerLink="home" [routerLinkActive]="['is-active']">
     <mat-icon>shuffle</mat-icon> Random
   </a>
-  <a mat-button class="view-button date-button ml-10" [routerLinkActive]="['is-active']">
-    Date <mat-datepicker-toggle [disabled]="router.url != '/home'" (click)="checkClick($event)"matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <a mat-button class="view-button date-button ml-10" routerLink="fromdate" [routerLinkActive]="['is-active']">
+    Date <mat-datepicker-toggle [disabled]="router.url != '/fromdate'" (click)="checkClick($event)"matSuffix [for]="picker2"></mat-datepicker-toggle>
   </a>
 
-  <input matInput class="cdk-visually-hidden" [max]="today" [matDatepicker]="picker2">
+  <input matInput #dateInput class="cdk-visually-hidden" [max]="today" [matDatepicker]="picker2" (dateChange)="requestDate(dateInput.value)">
   <mat-datepicker #picker2 ></mat-datepicker>
 
   <a mat-button class="view-button" routerLink="liked" [routerLinkActive]="['is-active']">

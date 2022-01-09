@@ -21,6 +21,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatInputModule} from "@angular/material/input";
 import { LikedPhotosComponent } from './liked-photos/liked-photos.component';
+import { FromDateComponent } from './from-date/from-date.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { LikedPhotosComponent } from './liked-photos/liked-photos.component';
     HoverClassDirective,
     RocketLoaderComponent,
     LikedPhotosComponent,
+    FromDateComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ import { LikedPhotosComponent } from './liked-photos/liked-photos.component';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

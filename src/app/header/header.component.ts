@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LayoutService} from "../services/layout.service";
 import {Router} from "@angular/router";
+import {NasaPhotosService} from "../services/nasa-photos.service";
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   gridLayout:boolean;
   today = new Date();
 
-  constructor(private layoutService: LayoutService, public router: Router) { }
+  constructor(private layoutService: LayoutService, public router: Router, private nasaPhotoService: NasaPhotosService) { }
 
   ngOnInit(): void {
     this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
@@ -33,10 +34,17 @@ export class HeaderComponent implements OnInit {
 
 
   checkClick($event: MouseEvent) {
-    if(this.router.url == '/home'){
+    if(this.router.url == '/fromdate'){
       $event.stopPropagation();
       $event.preventDefault();
     }
+
+  }
+
+  requestDate(value: string) {
+    const date = new Date(value)
+    this.nasaPhotoService.setPhotosLoadingState(true);
+    this.nasaPhotoService.getPhotosFromDate(date,9, false)
 
   }
 }

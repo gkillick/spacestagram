@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   constructor(private likeService: LikeService, private nasaPhotosService: NasaPhotosService, private layoutService: LayoutService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.nasaPhotosService.getRandomPhotos(10)
     this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
     this.nasaPhotosService.sharedNasaImagesState.subscribe((value) => {
       this.apiImagesRequested = false;
