@@ -17,6 +17,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { LikeButtonComponent } from './home/photo-card/like-button/like-button.component';
 import { HoverClassDirective } from './directives/hover-class.directive';
 import { RocketLoaderComponent } from './home/rocket-loader/rocket-loader.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { RocketLoaderComponent } from './home/rocket-loader/rocket-loader.compon
     MatButtonModule,
     MatMenuModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

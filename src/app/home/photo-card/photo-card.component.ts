@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NasaPhoto} from "../../services/nasa-photos.service";
 import {DomSanitizer, SafeResourceUrl, SafeUrl} from "@angular/platform-browser";
 import {LayoutService} from "../../services/layout.service";
@@ -12,14 +12,15 @@ import {PhotoDetailComponent} from "./photo-detail/photo-detail.component";
 })
 export class PhotoCardComponent implements OnInit {
 
+  @Output()
+  imageLoadedEmitter = new EventEmitter();
+
   @Input() photo: NasaPhoto;
-  safeYoutubeURL: SafeResourceUrl;
   gridLayout: boolean;
 
   constructor(public dialog: MatDialog, private _sanitizer: DomSanitizer, private layoutService: LayoutService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.safeYoutubeURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.photo.url.replace("watch?v=", "v/"));
     this.layoutService.sharedGridViewState.subscribe((state) => {
       this.gridLayout = state;
       this.ref.detectChanges();
@@ -30,6 +31,10 @@ export class PhotoCardComponent implements OnInit {
 
   ngOnChanges(): void{
     this.ref.detectChanges()
+  }
+
+  sanitizeUrl(url: string){
+    return  this._sanitizer.bypassSecurityTrustResourceUrl(url.replace("watch?v=", "v/"));
   }
 
   openPhotoDetail(event: MouseEvent) {
@@ -43,5 +48,9 @@ export class PhotoCardComponent implements OnInit {
         }
       })
     }
+  }
+
+  imageLoaded(){
+    this.imageLoadedEmitter.emit();
   }
 }

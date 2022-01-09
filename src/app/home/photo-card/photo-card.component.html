@@ -9,11 +9,11 @@
     </div>
   </section>
   <div class="photo-container"  *ngIf="photo.media_type == 'image'">
-  <img class="photo" [alt]="photo.title" [src]="photo.url" >
+  <img (load)="imageLoaded()" class="photo" [alt]="photo.title" [src]="photo.url" >
   </div>
   <div *ngIf="photo.media_type == 'video'" class="video-outer-container">
   <div class="video-container" >
-  <iframe  [src]="safeYoutubeURL" allowfullscreen="true" width="100%" height="100%"></iframe>
+  <iframe  [src]="sanitizeUrl(this.photo.url)" allowfullscreen="true" width="100%" height="100%"></iframe>
   </div>
   </div>
   <section *ngIf="!gridLayout">

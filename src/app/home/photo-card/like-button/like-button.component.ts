@@ -1,5 +1,6 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {NasaPhoto} from "../../../services/nasa-photos.service";
+import {LikeService} from "../../../services/like.service";
 
 @Component({
   selector: 'app-like-button',
@@ -12,14 +13,16 @@ export class LikeButtonComponent implements OnInit {
   @Input() photo: NasaPhoto;
   liked = false;
 
-  constructor() {
+  constructor(private likeService: LikeService) {
   }
 
   ngOnInit(): void {
+    this.liked = this.likeService.isLiked(this.photo)
   }
 
   likePhoto(){
-    this.liked = !this.liked;
+    this.likeService.likePhoto(this.photo)
+    this.liked = this.likeService.isLiked(this.photo);
   }
 
 }

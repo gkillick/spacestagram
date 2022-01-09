@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
   darkMode = false;
   gridLayout:boolean;
+  today = new Date();
 
   constructor(private layoutService: LayoutService) { }
 

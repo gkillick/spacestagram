@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: rocketPulseMove 3s;
+  animation-iteration-count: infinite;
 }
 $rocket-size: 70px;
 .rocket-container mat-icon{
@@ -70,6 +72,26 @@ $rocket-size: 70px;
 
   70% {
     transform: scale(1.6, 2.1);
+  }
+
+}
+@keyframes rocketPulse3  {
+  0%, 100% {
+    transform: scale(1.3, 2);
+  }
+
+  70% {
+    transform: scale(1.6, 2.1);
+  }
+
+}
+@keyframes rocketPulseMove  {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
   }
 
 }

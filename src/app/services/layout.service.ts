@@ -6,6 +6,8 @@ import {BehaviorSubject} from "rxjs";
 })
 export class LayoutService {
 
+
+
   private gridView = new BehaviorSubject(true);
   sharedGridViewState = this.gridView.asObservable();
 

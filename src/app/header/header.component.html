@@ -1,19 +1,30 @@
 <div class="header-spacer"></div>
 <header class="app-header">
   <div class="header-left-content">
-    <button class="no-btn-style" (click)="displayGridView()" [class.accent-header-text]="!gridLayout">
-      <mat-icon>apps</mat-icon>
+
+    <button mat-icon-button class="header-text" (click)="displayListView()" [class.accent-header-text]="gridLayout">
+      <mat-icon>favorite</mat-icon>
     </button>
-    <button class="no-btn-style" (click)="displayListView()" [class.accent-header-text]="gridLayout">
-      <mat-icon>format_list_bulleted</mat-icon>
-    </button>
+
+    <input matInput class="cdk-visually-hidden" [max]="today" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
   </div>
   <nav><a href="/" class="logo"><mat-icon class="logo-icon">rocket_launch</mat-icon><span class="bolder-logo-text">Space</span>stagram</a></nav>
+
+
   <div class="header-right-content">
     <span class="header-text mr-10" [class.accent-header-text]="darkMode">Light</span>
   <mat-slide-toggle [checked]="darkMode" (toggleChange)="toggleDarkMode()" class="dark-mode-toggle" aria-label="toggle dark mode ">
   </mat-slide-toggle>
     <span class="header-text ml-10" [class.accent-header-text]="!darkMode">Space</span>
+
+    <button mat-icon-button class="header-text" (click)="displayGridView()" [class.accent-header-text]="!gridLayout">
+      <mat-icon>apps</mat-icon>
+    </button>
+    <button mat-icon-button class="header-text" (click)="displayListView()" [class.accent-header-text]="gridLayout">
+      <mat-icon>format_list_bulleted</mat-icon>
+    </button>
   </div>
 
   <div class="header-right-content-mobile">
