@@ -15,7 +15,7 @@ export class FromDateComponent implements OnInit {
     let max = document.documentElement.scrollHeight;
     if(pos/max > 0.5 && !this.apiImagesRequested)   {
       this.apiImagesRequested = true;
-      this.nasaPhotosService.getPhotosFromDate(this.date, 9, true)
+      this.nasaPhotosService.getPhotosFromDate(this.date, 11, true)
     }
   }
   apiImagesRequested = false;
@@ -27,7 +27,7 @@ export class FromDateComponent implements OnInit {
   constructor(private nasaPhotosService: NasaPhotosService, private layoutService: LayoutService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.nasaPhotosService.getPhotosFromDate(new Date(), 10, false);
+    this.nasaPhotosService.getPhotosFromDate(new Date(), 11, false);
     this.nasaPhotosService.sharedPhotosLoadingState.subscribe((state)=> {
       this.requestLoaded = !state
       if(!this.requestLoaded){

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     let max = document.documentElement.scrollHeight;
     if(pos/max > 0.5 && !this.apiImagesRequested)   {
       this.apiImagesRequested = true;
-      this.nasaPhotosService.getRandomPhotos(9)
+      this.nasaPhotosService.getRandomPhotos(12)
     }
   }
 
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   constructor(private likeService: LikeService, private nasaPhotosService: NasaPhotosService, private layoutService: LayoutService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.nasaPhotosService.getRandomPhotos(10)
+    this.nasaPhotosService.getRandomPhotos(12)
     this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
     this.nasaPhotosService.sharedNasaImagesState.subscribe((value) => {
       this.apiImagesRequested = false;
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
       if(this.requestLoaded){
         this.nasaPhotos = value;
       }else{
-        this.preloadImages(9)
+        this.preloadImages(12)
         this.ref.detectChanges()
       }
     })
@@ -57,7 +57,6 @@ export class HomeComponent implements OnInit {
     if(this.loadedImages == this.totalImages){
       this.requestLoaded = true;
       this.nasaPhotos = this.nasaPhotosPreload;
-      this.nasaPhotosService.getRandomPhotos(9)
     }
 
   }

@@ -1,6 +1,8 @@
 :host{
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .photo-grid{
   max-width: 1000px;
@@ -28,9 +30,12 @@
 
 //rocket loading container
 .rocket-loading-container{
+  z-index: -1;
   position: fixed;
   top: 0;
   bottom: 0;
+  right:0;
+  left:0;
   display: flex;
   flex: 1;
   justify-content: center;
