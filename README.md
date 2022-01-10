@@ -1,4 +1,4 @@
-# Spacestagram
+# Spacestagram | [Live Demo](https://gkillick.github.io/spacestagram/)
 
 ![alt text](src/assets/images/rocket_image.png#gh-light-mode-only)
 ![alt text](src/assets/images/rocket-light-mode.png#gh-dark-mode-only)
@@ -27,14 +27,7 @@ I built this project using Angular and Typescript to allow for rapid development
 
 ## Run Spacestagram!
 
-
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  1. Run `git clone https://github.com/gkillick/spacestagram.git` to copy the project locally. 
+  2. Open the terminal and `cd spacestagram` to enter the project
+  3. Run `ng serve` to start the app
+  4. navigate in your web browser to `localhost:4200` to explore the app 🚀
