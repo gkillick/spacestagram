@@ -42,17 +42,16 @@
 
 <div class="view-options" [class.hide-view-options]="menuHidden">
   <a mat-button class="view-button date-button ml-10" routerLink="fromdate" [routerLinkActive]="['is-active']">
-    <mat-datepicker-toggle [disabled]="router.url != '/fromdate'" (click)="checkClick($event)"matSuffix [for]="picker2"></mat-datepicker-toggle> By Date
+    <mat-datepicker-toggle [disabled]="router.url != '/fromdate'" (click)="checkClick($event)"matSuffix [for]="picker2"></mat-datepicker-toggle>From Date
   </a>
   <a mat-button class="view-button" routerLink="home" [routerLinkActive]="['is-active']">
-    <mat-icon>shuffle</mat-icon> Randomly
+    Randomly
   </a>
 
   <input matInput #dateInput class="cdk-visually-hidden" [max]="today" [matDatepicker]="picker2" (dateChange)="requestDate(dateInput.value)">
   <mat-datepicker #picker2 ></mat-datepicker>
 
-  <a mat-button class="view-button" routerLink="liked" [routerLinkActive]="['is-active']">
-    <mat-icon>{{router.url == '/liked' ? 'favorite' : 'favorite_border'}}</mat-icon> Liked
+  <a mat-button class="view-button" routerLink="liked" [routerLinkActive]="['is-active']">Liked
   </a>
 </div>
 <div class="view-options-spacer"></div>

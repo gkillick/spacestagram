@@ -18,7 +18,7 @@ section.mobile-photo-section{
   box-sizing: border-box;
   opacity:0;
   transition: opacity .3s ease-in-out;
-  z-index: 9;
+  z-index: 4;
 }
 .show-description .mobile-photo-section{
   opacity:0.9;

@@ -95,6 +95,7 @@ $headerHeight: 60px;
   top:-70px!important;
 }
 .view-options{
+  margin-right: 30px;
   transition: top 0.3s;
   height:70px;
   display: flex;
@@ -114,7 +115,9 @@ $headerHeight: 60px;
 
     }
   }
-
+  .date-button{
+    padding-left:5px
+  }
   .view-button{
     color: var(--accent-text-color);
     text-transform: uppercase;
