@@ -18,7 +18,7 @@ Spacestagram is a project created to explore NASA's [Astronomy Picture of the Da
   * 🌙 Dark Mode 
 
 ## Design
-Before beginning the project I created several big marker mockups of the various features and application flow. This allowed me to identify the various application components and establish a development path. 
+Before beginning the project I created several "big marker mockups" of the various features and application flow. This allowed me to identify the various application components and establish a development path. 
 
 
 ## Development
