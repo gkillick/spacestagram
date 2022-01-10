@@ -94,8 +94,9 @@ $headerHeight: 60px;
 .hide-view-options{
   top:-70px!important;
 }
+
 .view-options{
-  margin-right: 30px;
+  padding-right: 30px;
   transition: top 0.3s;
   height:70px;
   display: flex;
@@ -109,12 +110,6 @@ $headerHeight: 60px;
   align-items: center;
   background:var(--main-background-color);
 
-
-  @media only screen and (min-width: 768px) {
-    .date-button{
-
-    }
-  }
   .date-button{
     padding-left:5px
   }
@@ -137,5 +132,13 @@ $headerHeight: 60px;
   }
   ::ng-deep .mat-button-disabled{
     opacity: 0;
+  }
+}
+@media only screen and (max-width: 768px){
+  .view-options{
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    justify-content: space-between!important;
+
   }
 }

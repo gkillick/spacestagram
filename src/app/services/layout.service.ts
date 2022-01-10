@@ -15,6 +15,7 @@ export class LayoutService {
   private darkMode = new BehaviorSubject(false);
   sharedDarkModeState = this.darkMode.asObservable();
 
+
   constructor() {
     this.getStoredLayoutInfo();
   }
@@ -64,6 +65,7 @@ export class LayoutService {
       }
     }
   }
+
 
 
 }

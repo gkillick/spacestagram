@@ -1,5 +1,6 @@
 <div class="header-spacer"></div>
 <header class="app-header">
+  <!-- grid/list buttons -->
   <div class="header-left-content">
     <button mat-icon-button class="header-text" (click)="displayGridView()" [class.accent-header-text]="!gridLayout">
       <mat-icon>apps</mat-icon>
@@ -9,9 +10,12 @@
     </button>
 
   </div>
+
+  <!-- logo -->
   <nav><a href="/" class="logo"><mat-icon class="logo-icon">rocket_launch</mat-icon><span class="bolder-logo-text">Space</span>stagram</a></nav>
 
 
+  <!-- light mode/dark mode -->
   <div class="header-right-content">
     <span class="header-text mr-10" [class.accent-header-text]="darkMode">Light</span>
   <mat-slide-toggle [checked]="darkMode" (toggleChange)="toggleDarkMode()" class="dark-mode-toggle" aria-label="toggle dark mode ">
@@ -19,6 +23,7 @@
     <span class="header-text ml-10" [class.accent-header-text]="!darkMode">Space</span>
   </div>
 
+  <!-- mobile menu -->
   <div class="header-right-content-mobile">
     <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu" class="mobile-menu">
@@ -40,6 +45,7 @@
   </div>
 </header>
 
+<!-- sub menu for views, hides with scroll -->
 <div class="view-options" [class.hide-view-options]="menuHidden">
   <a mat-button class="view-button date-button ml-10" routerLink="fromdate" [routerLinkActive]="['is-active']">
     <mat-datepicker-toggle [disabled]="router.url != '/fromdate'" (click)="checkClick($event)"matSuffix [for]="picker2"></mat-datepicker-toggle>From Date

@@ -25,11 +25,19 @@ export class NasaPhotosService {
 
   }
 
-  getRandomPhotos(count: number){
+  getRandomPhotos(count: number, append: boolean){
+    if(!append){this.randomPhotos.next(new Array<NasaPhoto>())}
     const url = 'https://api.nasa.gov/planetary/apod?api_key=' + this.nasaAPIKey + '&count=' + count;
     this.http.get<NasaPhoto[]>(url).subscribe((value) => {
       let imagesToAdd = this.randomPhotos.value;
-      value.map((image)=> {imagesToAdd.push(image)})
+      if(append) {
+        let imagesToAdd = this.randomPhotos.value;
+        value.map((image) => {
+          imagesToAdd.push(image)
+        })
+      }else{
+        imagesToAdd = value;
+      }
       this.randomPhotos.next(imagesToAdd)
     })
   };
@@ -38,7 +46,6 @@ export class NasaPhotosService {
     let endDateMoment = moment(endDate)
     let startDateMoment = moment(endDateMoment);
     startDateMoment.subtract(days, 'days')
-
     const url = 'https://api.nasa.gov/planetary/apod?api_key=' + this.nasaAPIKey + '&start_date='+startDateMoment.format('Y-MM-DD')+'&end_date='+endDateMoment.format('Y-MM-DD');
     this.http.get<NasaPhoto[]>(url).subscribe((value)=>{
       value = value.reverse();

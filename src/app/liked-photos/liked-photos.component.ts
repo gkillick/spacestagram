@@ -23,6 +23,7 @@ export class LikedPhotosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
   imageLoaded() {

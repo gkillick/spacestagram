@@ -1,11 +1,10 @@
 import {ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
 import {NasaPhoto, NasaPhotosService} from "../services/nasa-photos.service";
 import {LayoutService} from "../services/layout.service";
-import {LikeService} from "../services/like.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
+  selector: 'app-from-date',
+  templateUrl: './from-date.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
@@ -16,74 +15,41 @@ export class HomeComponent implements OnInit {
     let max = document.documentElement.scrollHeight;
     if(pos/max > 0.5 && !this.apiImagesRequested)   {
       this.apiImagesRequested = true;
-      this.nasaPhotosService.getRandomPhotos(12)
+      this.nasaPhotosService.getPhotosFromDate(this.date, 11, true)
     }
   }
-
-  nasaPhotos = new Array<NasaPhoto>();
-  likedPhotos = new Array<NasaPhoto>();
-  //store all photos here and just load first 6
-  nasaPhotosPreload= new Array<NasaPhoto>();
-  gridLayout:boolean;
-  requestLoaded=false;
-  loadedImages = 0;
-  totalImages = 0;
   apiImagesRequested = false;
+  photosFromDate = new Array<NasaPhoto>();
+  requestLoaded = false;
+  gridLayout: boolean;
+  date = new Date();
 
-
-  constructor(private likeService: LikeService, private nasaPhotosService: NasaPhotosService, private layoutService: LayoutService, private ref: ChangeDetectorRef) { }
+  constructor(private nasaPhotosService: NasaPhotosService, private layoutService: LayoutService, private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.nasaPhotosService.getRandomPhotos(12)
-    this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
-    this.nasaPhotosService.sharedNasaImagesState.subscribe((value) => {
-      this.apiImagesRequested = false;
-      this.nasaPhotosPreload = value;
-      if(this.requestLoaded){
-        this.nasaPhotos = value;
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    this.nasaPhotosService.getPhotosFromDate(new Date(), 11, false);
+    this.nasaPhotosService.sharedPhotosLoadingState.subscribe((state)=> {
+      this.requestLoaded = !state
+      if(!this.requestLoaded){
+        this.photosFromDate = new Array<NasaPhoto>();
+      }
+    });
+    this.nasaPhotosService.sharedPhotosFromDate.subscribe((value)=> {
+      this.photosFromDate = value;
+      if(this.photosFromDate.length == 0){
+        this.requestLoaded = false;
       }else{
-        this.preloadImages(12)
-        this.ref.detectChanges()
+        //adjust date to last date requested
+        this.date = new Date(this.photosFromDate.slice(-1)[0].date);
+        this.apiImagesRequested = false;
       }
     })
-    this.likeService.sharedLikedPhotosState.subscribe((value)=> this.likedPhotos = value);
-
-
-
+    this.layoutService.sharedGridViewState.subscribe((value) => this.gridLayout = value);
   }
 
-  imageLoaded(){
-    this.loadedImages++;
-    if(this.loadedImages == this.totalImages){
-      this.requestLoaded = true;
-      this.nasaPhotos = this.nasaPhotosPreload;
-    }
+  imageLoaded() {
 
-  }
-
-  //adjust urls and preload images
-  preloadImages(numberToLoad: number){
-    this.adjustURLS()
-    //set preloaded images
-    this.nasaPhotos = this.nasaPhotosPreload.slice(0,numberToLoad)
-    //count photos
-    this.totalImages = this.nasaPhotos.filter((image) => {return image.media_type == "image"}).length
-  }
-
-  //adjust mislabelled mediaTypes
-  adjustURLS(){
-    if(this.nasaPhotosPreload.length > 0){
-      this.nasaPhotosPreload = this.nasaPhotosPreload.map((image)=>{
-        //fix improper labeling of video
-        if(image.url){
-          if(image.url.includes('youtube') || image.url.includes('vimeo') || image.url.includes('.html')){
-            image.media_type = 'video';
-          }
-        }
-        return image;
-      })
-    }
-    this. nasaPhotosPreload = this.nasaPhotosPreload.filter((image) => image.media_type != 'other')
   }
 
 }
