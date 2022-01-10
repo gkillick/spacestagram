@@ -1,24 +1,33 @@
-![logo](src/assets/images/spacestagram-logo.png#gh-light-mode-only)
-![logo](src/assets/images/logo-dark-mode.png#gh-dark-mode-only)
+# Spacestagram
 
 ![alt text](src/assets/images/rocket_image.png#gh-light-mode-only)
 ![alt text](src/assets/images/rocket-light-mode.png#gh-dark-mode-only)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+## About the project
 
-## Development server
+Spacestagram is a project created to explore NASA's [Astronomy Picture of the Day API](https://github.com/nasa/apod-api), allowing the user to like and view details of various types of media within the rich library.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+  * 📅 explore photos from specified date
+  * 🔀 explore photos at random
+  * ❤️ like photos/view liked photos
+  * 🕵️ click on any photo to view details
+  * ♾ infinite scroll
+  * 🎆 grid/list view options
+  * 🌙 Dark Mode 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Design
+Before beginning the project I created several big marker mockups of the various features and application flow. This allowed me to identify the various application components and establish a development path. 
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Development
+I built this project using Angular and Typescript to allow for rapid development and easy implementation of the various dynamic features. Shared UI features like the rocket animation and like button were developed as reusable components. Services were created to handle various state management for the layout and API features. The application was organized to promote high cohesion through specialized components while minimizing coupling by limiting use of global styles to colors and low-level interface elements. At all points of development the application was tested on various devices to allow for a seamless experience. 
 
-## Running unit tests
+
+## Run Spacestagram!
+
+
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
