@@ -18,11 +18,11 @@ Spacestagram is a project created to explore NASA's [Astronomy Picture of the Da
   * 🌙 Dark Mode 
 
 ## Design
-Before beginning the project I created several "big marker mockups" of the various features and application flow. This allowed me to identify the various application components and establish a development path. 
+Before beginning the project I created several "big marker mockups" of the various features and application flow. This allowed me to identify the various application components and establish a development path.
 
 
 ## Development
-I built this project using Angular and Typescript to allow for rapid development and easy implementation of the various dynamic features. Shared UI features like the rocket animation and like button were developed as reusable components. Services were created to handle various state management for the layout and API features. The application was organized to promote high cohesion through specialized components while minimizing coupling by limiting use of global styles to colors and low-level interface elements. At all points of development the application was tested on various devices to allow for a seamless experience. 
+I built this project using Angular and Typescript to allow for rapid development and easy implementation of the various dynamic features. Shared UI features like the rocket animation and like button were developed as reusable components. Services were created to handle various state management for the layout and API features. The application was organized to promote high cohesion through specialized components while minimizing coupling by limiting use of global styles to colors and low-level interface elements. At all points of development the application was tested on various devices to allow for a seamless experience.  Various generic components from [Material Angular UI](https://material.angular.io/) were used for dialogs and buttons while specific interface elements such as the vector rocket animation 🚀 and like ❤️ coded from scratch. 
 
 
 ## Run Spacestagram!
