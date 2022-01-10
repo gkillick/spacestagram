@@ -86,18 +86,32 @@ $headerHeight: 60px;
     flex:1;
   }
 }
+.view-options-spacer{
+  display:flex;
+  height: 70px;
+  width: 100%;
+}
+.hide-view-options{
+  top:-70px!important;
+}
 .view-options{
+  transition: top 0.3s;
+  height:70px;
   display: flex;
-  padding:20px;
-  padding-bottom: 0px;
   justify-content: center;
   grid-gap: 2.5px;
+  position:fixed;
+  top:$headerHeight;
+  right:0;
+  left:0;
   z-index: 9;
+  align-items: center;
+  background:var(--main-background-color);
 
 
   @media only screen and (min-width: 768px) {
     .date-button{
-      padding-right: 0px;
+
     }
   }
 

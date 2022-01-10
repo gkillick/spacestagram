@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {LayoutService} from "../services/layout.service";
 import {Router} from "@angular/router";
 import {NasaPhotosService} from "../services/nasa-photos.service";
@@ -10,15 +10,27 @@ import {NasaPhotosService} from "../services/nasa-photos.service";
 })
 export class HeaderComponent implements OnInit {
 
+  //hide submenu if scrolling down
+  prevScrollpos = window.scrollY;
+  @HostListener("window:scroll", ["$event"])
+  onWindowScroll() {
+    let currentScrollPosition =  window.scrollY
+    if(currentScrollPosition >10) {
+      currentScrollPosition > this.prevScrollpos ? this.menuHidden = true : this.menuHidden = false;
+      this.prevScrollpos = currentScrollPosition;
+    }
+  }
+
   darkMode = false;
   gridLayout:boolean;
   today = new Date();
+  menuHidden = false;
 
   constructor(private layoutService: LayoutService, public router: Router, private nasaPhotoService: NasaPhotosService) { }
 
   ngOnInit(): void {
     this.layoutService.sharedGridViewState.subscribe((state)=> this.gridLayout = state);
-    this.layoutService.sharedDarkModeState.subscribe((state)=> this.darkMode = state)
+    this.layoutService.sharedDarkModeState.subscribe((state)=> this.darkMode = state);
   }
 
   toggleDarkMode() {
