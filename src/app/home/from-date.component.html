@@ -1,7 +1,7 @@
-<div [class.hide-loading]="!requestLoaded" [class.photo-grid]="gridLayout" [class.photo-list]="!gridLayout">
+<div [class.hide-loading]="requestLoaded" [class.photo-grid]="gridLayout" [class.photo-list]="!gridLayout">
   <app-photo-card (imageLoadedEmitter)="imageLoaded()" [class.photo-list-item]="!gridLayout" *ngFor="let photo of photosFromDate; index as i;" [photo]="photo" appStyleGridItem [index]="i"></app-photo-card>
 </div>
-<div  *ngIf="!requestLoaded" class="rocket-loading-container">
+<div  *ngIf="requestLoaded" class="rocket-loading-container">
   <app-rocket-loader></app-rocket-loader>
 </div>
 

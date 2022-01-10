@@ -1,13 +1,13 @@
 <div class="rocket-container">
     <mat-icon class="rocket-loading">rocket</mat-icon>
-  <div class="rocket-flame">
-    <div class="flame-container">
+  <div class="rocket-flame" [class.safari]="isSafari">
+    <div class="flame-container container-red">
       <img class="rocket-flame-red" width="100%" src="assets/images/red.svg">
     </div>
-    <div class="flame-container">
+    <div class="flame-container container-orange">
       <img class="rocket-flame-orange" width="75%" src="assets/images/orange.svg">
     </div>
-    <div class="flame-container">
+    <div class="flame-container container-yellow">
       <img class="rocket-flame-yellow" width="30%" src="assets/images/yellow.svg">
     </div>
   </div>

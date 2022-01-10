@@ -7,6 +7,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RocketLoaderComponent implements OnInit {
 
+  isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
   constructor() {
   }
 

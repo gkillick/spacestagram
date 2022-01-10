@@ -43,6 +43,20 @@ $rocket-size: 70px;
   animation:rocketPulse3 .8s ;
 }
 
+
+
+  .safari .container-red{
+    height:30px;
+  }
+  .safari .container-orange{
+    height: 20px;
+  }
+  .safari .container-yellow{
+    height: 8px;
+  }
+
+
+
 //rocket animation
 
 @keyframes rocketPulse  {
