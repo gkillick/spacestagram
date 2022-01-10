@@ -1,7 +1,6 @@
 <div class="mobile-close">
   <div class="photo-buttons-mobile">
-    <button mat-icon-button *ngIf="photo.media_type=='image'" (click)="downloadPhoto()"><mat-icon>download</mat-icon></button>
-    <app-like-button [photo]="photo"></app-like-button>
+
   </div>
 
   <button ng-show="false" class="close-photo-detail-mobile" (click)="this.dialogRef.close()" mat-icon-button><mat-icon>close</mat-icon></button>
@@ -21,7 +20,10 @@
       <app-like-button [photo]="photo"></app-like-button>
     </div>
   </div>
-  <div class="photo-detail-container">
+  <div *ngIf="photo.media_type == 'image'" class="photo-detail-container">
   <img [src]="photo.url" [alt]="photo.title">
+  </div>
+  <div class="video-container" *ngIf="photo.media_type!= 'image'">
+    <iframe  [src]="this.photo.url | safe: 'resourceUrl'" allowfullscreen="true" width="100%" height="100%"></iframe>
   </div>
 </article>

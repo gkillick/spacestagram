@@ -5,8 +5,8 @@ import {LikedPhotosComponent} from "./liked-photos/liked-photos.component";
 import {FromDateComponent} from "./from-date/from-date.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {path: 'home', component: HomeComponent},
+  { path: '', redirectTo: '/fromdate', pathMatch: 'full' },
+  {path: 'random', component: HomeComponent},
   {path: 'fromdate', component: FromDateComponent},
   {path: 'liked', component: LikedPhotosComponent}
 ];
