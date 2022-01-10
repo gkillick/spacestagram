@@ -3,6 +3,7 @@
 
 ![alt text](src/assets/images/rocket_image.png#gh-light-mode-only)
 ![alt text](src/assets/images/rocket-light-mode.png#gh-dark-mode-only)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
