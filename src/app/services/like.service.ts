@@ -19,16 +19,16 @@ export class LikeService {
     let photos = this.likedPhotos.value
     //unlike or like
     if(this.isLiked(photo)){
-      photos = photos.filter((likedPhoto) => likedPhoto != photo);
+      photos = photos.filter((likedPhoto) => likedPhoto.date != photo.date);
     }else{
       photos.push(photo)
-      this.likedPhotos.next(photos);
     }
     this.likedPhotos.next(photos);
     localStorage.setItem('likedPhotos', JSON.stringify(this.likedPhotos.value));
   }
 
   isLiked(photo: NasaPhoto):boolean{
-    return this.likedPhotos.value.filter((likedPhoto) => photo == likedPhoto).length > 0
+    return this.likedPhotos.value.some(likedPhoto => photo.date === likedPhoto.date)
+
   }
 }
